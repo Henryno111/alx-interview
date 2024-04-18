@@ -1,6 +1,8 @@
 #!/usr/bin/python3
-# a function call 
-""" my function """ 
+# a function call
+""" my function """
+
+
 def canUnlockAll(boxes):
     """
     Determine if all boxes can be opened.
