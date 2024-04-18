@@ -15,30 +15,15 @@ def canUnlockAll(boxes):
     if num_boxes == 0:
         return False
 
-    # Initialize a set to keep track of opened boxes
     opened_boxes = {0}
 
-    # Initialize a set to keep track of available keys
     available_keys = set(boxes[0])
 
-    # Loop until no new boxes can be opened
     while available_keys:
-        # Get a key from the available keys
         key = available_keys.pop()
 
-        # If the key opens a box and the box hasn't been opened yet
         if key < num_boxes and key not in opened_boxes:
-            # Add the box to the opened boxes
             opened_boxes.add(key)
-            # Add keys from the newly opened box to available keys
             available_keys.update(boxes[key])
 
-    # If all boxes have been opened
     return len(opened_boxes) == num_boxes
-
-
-if __name__ == "__main__":
-
-    # Example usage:
-    boxes = [[1], [2], [3], []]
-    print(canUnlockAll(boxes))
