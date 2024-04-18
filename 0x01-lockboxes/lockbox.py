@@ -35,10 +35,3 @@ def canUnlockAll(boxes):
 
     # If all boxes have been opened
     return len(opened_boxes) == num_boxes
-
-
-if __name__ == "__main__":
-
-    # Example usage:
-    boxes = [[1], [2], [3], []]
-    print(canUnlockAll(boxes))
