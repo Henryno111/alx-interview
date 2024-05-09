@@ -20,20 +20,26 @@ def validUTF8(data):
         if byte & 0x80 == 0:  # 1-byte character
             pass
         elif byte & 0xE0 == 0xC0:  # 2-byte character
-            if i + 1 >= len(data) or data[i + 1] & 0xC0 != 0x80:
+            if (i + 1 >= len(data) or
+                    data[i + 1] & 0xC0 != 0x80):
                 return False
             i += 1
         elif byte & 0xF0 == 0xE0:  # 3-byte character
-            if i + 2 >= len(data) or data[i + 1] & 0xC0 != 0x80 or data[i + 2] & 0xC0 != 0x80:
+            if (i + 2 >= len(data) or
+                    data[i + 1] & 0xC0 != 0x80 or
+                    data[i + 2] & 0xC0 != 0x80):
                 return False
             i += 2
         elif byte & 0xF8 == 0xF0:  # 4-byte character
-            if i + 3 >= len(data) or data[i + 1] & 0xC0 != 0x80 or data[i + 2] & 0xC0 != 0x80 or data[i + 3] & 0xC0 != 0x80:
+            if (i + 3 >= len(data) or
+                    data[i + 1] & 0xC0 != 0x80 or
+                    data[i + 2] & 0xC0 != 0x80 or
+                    data[i + 3] & 0xC0 != 0x80):
                 return False
             i += 3
         else:
             return False
-        
+
         i += 1
-    
+
     return True
