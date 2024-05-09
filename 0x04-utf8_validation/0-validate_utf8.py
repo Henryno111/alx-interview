@@ -5,16 +5,17 @@ Return: True if data is a valid UTF-8 encoding, else return False
 A character in UTF-8 can be 1 to 4 bytes long
 The data set can contain multiple characters
 The data will be represented by a list of integers
-Each integer represents 1 byte of data, therefore you only need to handle the 8 least significant bits of each integer
+Each integer represents 1 byte of data,therefore you only
+need to handle the 8 least significant bits of each integer
 '''
+
 
 def validUTF8(data):
     # Count of bytes in the current UTF-8 character
     bytes_count = 0
 
-
     # Iterate through each byte in the data
-    
+
     for byte in data:
         # Check if this byte is the start of a new UTF-8 character
         if bytes_count == 0:
@@ -33,6 +34,6 @@ def validUTF8(data):
             if byte >> 6 != 0b10:
                 return False
             bytes_count -= 1
-    
+
     # Check if there are any incomplete UTF-8 characters
     return bytes_count == 0
