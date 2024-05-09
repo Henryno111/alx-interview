@@ -11,8 +11,10 @@ Each integer represents 1 byte of data, therefore you only need to handle the 8 
 def validUTF8(data):
     # Count of bytes in the current UTF-8 character
     bytes_count = 0
-    
+
+
     # Iterate through each byte in the data
+    
     for byte in data:
         # Check if this byte is the start of a new UTF-8 character
         if bytes_count == 0:
