@@ -1,9 +1,9 @@
 #!/usr/bin/node
-const axios = require('response');
+const axios = require('axios');
 
 async function fetchCharacter(url) {
   try {
-    const response = await response.get(url);
+    const response = await axios.get(url);
     return response.data.name;
   } catch (error) {
     console.error(`Error fetching character from ${url}: ${error.message}`);
@@ -13,7 +13,7 @@ async function fetchCharacter(url) {
 
 async function starwarsCharacters(filmId) {
   try {
-    const filmResponse = await response.get(`https://swapi-api.hbtn.io/api/films/${filmId}`);
+    const filmResponse = await axios.get(`https://swapi-api.hbtn.io/api/films/${filmId}`);
     const characters = filmResponse.data.characters;
 
     for (const characterUrl of characters) {
